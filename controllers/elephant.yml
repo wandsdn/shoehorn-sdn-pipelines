@@ -1,0 +1,21 @@
+title: "Real-time Detection, Isolation and Monitoring of Elephant Flows using Commodity SDN System"
+link: "https://www2.ee.unsw.edu.au/~hhabibi/pubs/conf/18noms.pdf"
+network: Enterprise
+of_version: "1.3"
+tables:
+    - type: "exact"
+      fields: ["5tuple"]
+      actions: [output, count]
+      update_rate: high
+      entries: high
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 1
+    - type: "exact"
+      fields: ["in_port"]
+      actions: [output, clone]
+      update_rate: static
+      entries: static
+      hit_access_tables: []
+      miss_access_tables: [0]
+      access_conditionals: 1

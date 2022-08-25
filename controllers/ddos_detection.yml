@@ -1,0 +1,13 @@
+title: "Lightweight DDoS Flooding Attack Detection Using NOX/OpenFlow"
+link: "https://www.researchgate.net/profile/Edjard_Mota/publication/221080718_Lightweight_DDoS_flooding_attack_detection_using_NOXOpenFlow/links/54c8de0c0cf22d626a3a53ed/Lightweight-DDoS-flooding-attack-detection-using-NOX-OpenFlow.pdf"
+of_version: 1.0
+network: ""
+tables:
+    - type: "exact"
+      fields: [5tuple]
+      actions: [count, output]
+      update_rate: high
+      entries: high
+      access_hit_tables: []
+      access_miss_tables: []
+      access_conditionals: 1

@@ -1,0 +1,21 @@
+title: "Data Transfer in a Science DMZ using SDN with Applications for Precision Medicine in Cloud and High-performance Computing"
+link: "http://pire.opensciencedatacloud.org/images/pho-sdn-sc15-v2.pdf"
+of_version: "1.0"
+network: "campus"
+tables:
+    - type: "exact"
+      fields: [ethertype]
+      actions: [output]
+      update_rate: static
+      entries: low
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0
+    - type: "exact"
+      fields: [ip_src, ip_dst, ip_proto, l4_src, l4_dst]
+      actions: [output]
+      update_rate: low
+      entries: low
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0

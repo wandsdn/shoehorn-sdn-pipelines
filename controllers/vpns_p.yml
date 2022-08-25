@@ -1,0 +1,21 @@
+title: "Rethinking Virtual Private Networks in the Software-Defined Era"
+link: "http://dl.ifip.org/db/conf/im/im2015/137398.pdf"
+of_version: "1.1"
+network: ""
+tables:
+    - type: "exact"
+      fields: [eth_dst]
+      actions: []
+      update_rate: low
+      entries: low
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 1
+    - type: "exact"
+      fields: [mpls_label]
+      actions: [output, pop_mpls, dec_ttl, copy_ttl_inward]
+      update_rate: mid
+      entries: high
+      hit_access_tables: [0]
+      miss_access_tables: []
+      access_conditionals: 1

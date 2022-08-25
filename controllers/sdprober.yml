@@ -1,0 +1,17 @@
+title: "SDProber: A Software Defined Prober for SDN"
+link: "https://dl.acm.org/doi/pdf/10.1145/3185467.3185472"
+of_version: "1.3"
+value: medium
+network: ""
+hardware: "ovs"
+summary:
+    - "just a mechanism for measuring link latency"
+tables:
+    - type: "exact"
+      fields: [eth_dst]
+      actions: [dec_ttl, set_eth_dst, clone, notify, output, select]
+      update_rate: static
+      entries: low
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 1

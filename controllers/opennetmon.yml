@@ -1,0 +1,12 @@
+title: "OpenNetMon: Network Monitoring in OpenFlow Software-Defined Networks"
+link: "https://fernandokuipers.nl/papers/MonitoringOpenFlow.pdf"
+of_version: "1.0"
+tables:
+    - type: "exact"
+      fields: [12tuple]
+      actions: [notify, output, count]
+      update_rate: high
+      entries: high
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0

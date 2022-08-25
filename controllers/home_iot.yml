@@ -1,0 +1,13 @@
+title: "A Host-based Intrusion Detection and Mitigation Framework for Smart Home IoT using OpenFlow"
+link: "https://www.researchgate.net/profile/Mehdi_Nobakht/publication/311771106_A_Host-Based_Intrusion_Detection_and_Mitigation_Framework_for_Smart_Home_IoT_Using_OpenFlow/links/5b977c78299bf1473948d114/A-Host-Based-Intrusion-Detection-and-Mitigation-Framework-for-Smart-Home-IoT-Using-OpenFlow.pdf"
+network: "home"
+tables:
+    - type: "ternary"
+      fields: [5tuple]
+      actions: [notify]
+      update_rate: mid
+      entries: mid
+      idle_timeout: no
+      access_hit_tables: []
+      access_miss_tables: []
+      access_conditionals: 1

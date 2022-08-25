@@ -1,0 +1,21 @@
+title: "SciPass: a 100Gbps capable secure Science DMZ using OpenFlow and Bro"
+link: "https://pdfs.semanticscholar.org/2eb9/79335603c429e422ea9dd2c655648adb7b58.pdf"
+of_version: ""
+network: "campus"
+tables:
+    - type: "exact"
+      fields: [5tuple]
+      actions: [output]
+      update_rate: mid
+      entries: mid
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 1
+    - type: "exact"
+      fields: [in_port]
+      actions: [output, clone]
+      update_rate: static
+      entries: low
+      hit_access_tables: []
+      miss_access_tables: [0]
+      access_conditionals: 1

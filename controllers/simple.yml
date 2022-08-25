@@ -1,0 +1,21 @@
+title: "SIMPLE-fying Middlebox Policy Enforcement Using SDN"
+link: ""
+of_version: ""
+network: enterprise
+tables:
+    - type: "ternary"
+      fields: [in_port, vlan_vid]
+      actions: [set_eth_dst, output]
+      update_rate: low
+      entries: mid
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0
+    - type: "exact"
+      fields: [5tuple]
+      actions: [output]
+      update_rate: low
+      entries: mid
+      hit_access_tables: []
+      miss_access_tables: [0]
+      access_conditionals: 1

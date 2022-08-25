@@ -1,0 +1,13 @@
+title: "Efficient Round-Trip Time Monitoring in OpenFlow Networks"
+link: "https://deepness-lab.org/wp-content/uploads/2022/01/infocom2016_grami.pdf"
+network: ""
+of_version: "1.3"
+tables:
+    - type: "ternary"
+      fields: [in_port, vlan_vid, ethertype]
+      actions: [set_vid, set_ethertype, output, multicast, clone]
+      update_rate: static
+      entries: low
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0

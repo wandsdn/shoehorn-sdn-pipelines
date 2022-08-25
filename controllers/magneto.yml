@@ -1,0 +1,21 @@
+title: "Magneto: Unified Fine-grained Path Control in Legacy and OpenFlow Hybrid Networks"
+link: "https://dl.acm.org/doi/pdf/10.1145/3050220.3050229"
+of_version: ""
+network: "Enterprise"
+tables:
+    - type: "lpm"
+      fields: [ip_dst]
+      actions: [set_eth_dst, set_eth_src, output, set_vid, dec_ttl]
+      update_rate: mid
+      entries: high
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 1
+    - type: "exact"
+      fields: [eth_dst]
+      actions: [notify, drop]
+      update_rate: static
+      entries: low
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0

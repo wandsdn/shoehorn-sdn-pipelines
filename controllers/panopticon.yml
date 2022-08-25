@@ -1,0 +1,37 @@
+title: "Panopticon: Reaping the Benefits of Partial SDN Deployment in Enterprise Networks"
+link: "https://do.tu-berlin.de/bitstream/11303/11308/1/tr_2013-04.pdf"
+network: Enterprise
+of_version: "1.0"
+tables:
+    - type: "exact"
+      fields: [in_port]
+      actions: [drop]
+      update_rate: mid
+      entries: mid
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0
+    - type: "exact"
+      fields: [eth_src, vlan_vid, in_port]
+      actions: [notify]
+      update_rate: high
+      entries: high
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0
+    - type: "ternary"
+      fields: [ethertype, eth_dst]
+      actions: [notify, output]
+      update_rate: static
+      entries: low
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0
+    - type: "exact"
+      fields: [eth_dst, vlan_vid]
+      actions: [set_vid, output]
+      update_rate: high
+      entries: high
+      hit_access_tables: []
+      miss_access_tables: [0]
+      access_conditionals: 0

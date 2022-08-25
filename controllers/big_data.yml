@@ -1,0 +1,13 @@
+title: "Programming your network at run-time for big data applications"
+link: "https://dl.acm.org/doi/pdf/10.1145/2342441.2342462"
+of_version: "1.2"
+network: dc
+tables:
+    - type: "exact"
+      fields: [vlan]
+      actions: [output]
+      update_rate: mid
+      entries: mid
+      access_hit_tables: []
+      access_miss_tables: []
+      access_conditionals: 0

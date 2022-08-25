@@ -1,0 +1,13 @@
+title: "Developing a Traffic Classification Platform for Enterprise Networks with SDN: Experiences & Lessons Learned."
+link: "https://dl.ifip.org/db/conf/networking/networking2015/1570065779.pdf"
+network: Enterprise
+of_version: "1.0"
+tables:
+    - type: "exact"
+      fields: ["5tuple"]
+      actions: [output, count, notify]
+      update_rate: high
+      entries: high
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 1

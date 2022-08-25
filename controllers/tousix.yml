@@ -1,0 +1,21 @@
+title: "OpenFlow-based Migration and Management of the TouIX IXP"
+link: "https://hal.archives-ouvertes.fr/hal-01276379/file/paper-version_HAL.pdf"
+network: ISP
+of_version: "1.3"
+tables:
+    - type: "exact"
+      fields: ["eth_dst"]
+      actions: [output]
+      update_rate: low
+      entries: high
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0
+    - type: "exact"
+      fields: ["arp_tpa"]
+      actions: [output]
+      update_rate: low
+      entries: high
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 1

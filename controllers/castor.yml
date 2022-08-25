@@ -1,0 +1,21 @@
+title: "A Software-Defined Flexible Inter-Domain Interconnect using ONOS"
+link: "https://research.csiro.au/ng/wp-content/uploads/sites/106/2016/08/EWSDN_2016_paper_23.pdf"
+of_version: ""
+network: "IXP"
+tables:
+    - type: "exact"
+      fields: [ethertype, arp_tp_id]
+      actions: [output]
+      update_rate: low
+      entries: high
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 1
+    - type: "ternary"
+      fields: [any]
+      actions: [any]
+      update_rate: low
+      entries: mid
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 1

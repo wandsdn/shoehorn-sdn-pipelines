@@ -1,0 +1,12 @@
+title: "Opengate on OpenFlow: System Outline"
+link: ""
+network: "enterprise"
+tables:
+    - type: "exact"
+      fields: [in_port, eth_src]
+      actions: [drop]
+      update_rate: mid
+      entries: mid
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0

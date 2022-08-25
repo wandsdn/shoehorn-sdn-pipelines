@@ -1,0 +1,45 @@
+title: "An SDN-based Approach For Defending Against Reflective DDoS Attacks"
+link: "https://arxiv.org/pdf/1808.01177.pdf"
+network: "ISP"
+of_version: "1.3"
+tables:
+    - type: "exact"
+      fields: [ip_src, udp_dst]
+      actions: [set_ip_src, output]
+      update_rate: mid
+      entries: mid
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 2
+    - type: "exact"
+      fields: [ip_src, udp_src]
+      actions: [output]
+      update_rate: mid
+      entries: mid
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 2
+    - type: "exact"
+      fields: [ip_dst, udp_src]
+      actions: [drop, set_ip_dst, output]
+      update_rate: mid
+      entries: mid
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 2
+    - type: "exact"
+      fields: [ip_dst, udp_dst]
+      actions: [output]
+      update_rate: mid
+      entries: mid
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 2
+    - type: "ternary"
+      fields: [ethertype, ip_src, ip_dst, ip_proto, udp_src, udp_dst,]
+      actions: [output, notify, drop]
+      update_rate: low
+      entries: mid
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 2

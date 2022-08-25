@@ -1,0 +1,28 @@
+title: "Delay Measurement in Openflow-Enabled MPLS-TP Network "
+of_version: "1.1"
+network: "carrier"
+tables:
+    - type: "exact"
+      fields: [mpls_label, in_port]
+      actions: [output, set_mpls_label, pop_mpls]
+      update_rate: low
+      entries: high
+      access_hit_tables: []
+      access_miss_tables: []
+      access_conditionals: 1
+    - type: "exact"
+      fields: [eth_src]
+      actions: [output]
+      update_rate: mid
+      entries: high
+      access_hit_tables: [0]
+      access_miss_tables: []
+      access_conditionals: 1
+    - type: "exact"
+      fields: [mpls_label, eth_src]
+      actions: [notify]
+      update_rate: static
+      entries: low
+      access_hit_tables: []
+      access_miss_tables: [0]
+      access_conditionals: 1

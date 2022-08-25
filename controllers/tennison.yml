@@ -1,0 +1,29 @@
+title: "TENNISON: A Distributed SDN Framework for Scalable Network Security"
+link: "https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8468216"
+of_version: "1.3"
+network: "enterprise"
+tables:
+    - type: "exact"
+      fields: [vlan_vid]
+      actions: [output, pop_vlan]
+      update_rate: low
+      entries: low
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0
+    - type: "ternary"
+      fields: [eth_src, eth_dst, ethertype, ip_src, ip_dst, ip_proto, l4_src, l4_dst]
+      actions: [drop, meter]
+      update_rate: mid
+      entries: mid
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0
+    - type: "ternary"
+      fields: [eth_src, eth_dst, ethertype, ip_src, ip_dst, ip_proto, l4_src, l4_dst]
+      actions: [count, clone]
+      update_rate: mid
+      entries: mid
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0

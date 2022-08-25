@@ -1,0 +1,36 @@
+title: "Revisiting traffic anomaly detection using software defined networking."
+network: "any"
+link: ""
+of_version: ""
+tables:
+    - type: "exact"
+      fields: [ip_src, ip_dst]
+      actions: [output, notify, meter]
+      update_rate: "high"
+      entries: "high"
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 1
+    - type: "exact"
+      fields: [ip_src, ip_dst]
+      actions: [output, notify, meter]
+      update_rate: high
+      entries: high
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 1
+    - type: "exact"
+      fields: [5tuple]
+      actions: [output, notify, count]
+      update_rate: "high"
+      entries: high
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 1
+    - type: "exact"
+      fields: [5tuple]
+      actions: [output, notify]
+      update_rate: high
+      entries: high
+      access_tables: 0
+      access_conditionals: 0

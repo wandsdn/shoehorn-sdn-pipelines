@@ -1,0 +1,29 @@
+title: "Cardigan: SDN Distributed Routing Fabric Going Live at an Internet Exchange"
+link: "https://researchcommons.waikato.ac.nz/bitstream/handle/10289/10015/Cardigan-ISCC%202014.pdf?sequence=4&isAllowed=y"
+network: IX
+of_version: "1.3"
+tables:
+    - type: "ternary"
+      fields: ["ip_proto", tcp_src, tcp_dst, ip_dst]
+      actions: [notify]
+      update_rate: static
+      entries: low
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0
+    - type: "exact"
+      fields: [eth_dst]
+      actions: []
+      update_rate: low
+      entries: low
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0
+    - type: "lpm"
+      fields: [ip_dst]
+      actions: [set_eth_dst, set_eth_src, output, dec_ttl, drop]
+      update_rate: high
+      entries: high
+      hit_access_tables: [1]
+      miss_access_tables: []
+      access_conditionals: 1

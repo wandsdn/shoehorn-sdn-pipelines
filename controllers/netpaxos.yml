@@ -1,0 +1,13 @@
+title: "NetPaxos: Consensus at Network Speed"
+link: "http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.717.2469&rep=rep1&type=pdf"
+of_version: ""
+network: "dc"
+tables:
+    - type: "exact"
+      fields: [in_port, ip_dst]
+      actions: [multicast, clone]
+      update_rate: static
+      entries: low
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0

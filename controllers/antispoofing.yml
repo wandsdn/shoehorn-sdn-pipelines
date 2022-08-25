@@ -1,0 +1,21 @@
+title: "Network Anti-Spoofing with SDN Data plane"
+link: "https://deepness-lab.org/wp-content/uploads/2022/01/infocom17_spoofing.pdf"
+network: ISP
+of_version: "1.5"
+tables:
+    - type: "exact"
+      fields: ["ip_src"]
+      actions: [output]
+      update_rate: high
+      entries: high
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 1
+    - type: "ternary"
+      fields: [ip_src, tcp_src, syn, ack]
+      actions: [drop, output, copy_ip, copy_eth, set_tcp_flags, set_seq, set_ack, notify]
+      update_rate: static
+      entries: mid
+      hit_access_tables: []
+      miss_access_tables: [0]
+      access_conditionals: 1

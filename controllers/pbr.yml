@@ -1,0 +1,12 @@
+title: "A Framework for OpenFlow-like Policy-based Routing in Hybrid Software Defined Networks"
+link: "https://www.researchgate.net/profile/K_Haribabu/publication/303304703_A_Framework_for_OpenFlow-like_Policy-based_Routing_in_Hybrid_Software_Defined_Networks/links/573c196c08ae298602e4642e.pdf"
+of_version: ""
+tables:
+    - type: "ternary"
+      fields: [5tuple]
+      actions: [set_ip_dst, set_ip_src, set_eth_dst, output, notify]
+      update_rate: high
+      entries: high
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0

@@ -1,0 +1,117 @@
+title: "ArOMA: An SDN based autonomic DDoS mitigation framework"
+link: "Faucet: Deploying SDN in the enterprise"
+network: Enterprise
+of_version: "1.3"
+tables:
+    - type: "exact"
+      fields: ["in_port"]
+      actions: [drop]
+      update_rate: low
+      entries: low
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0
+    - type: "exact"
+      fields: ["in_port"]
+      actions: [notify]
+      update_rate: low
+      entries: low
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 1
+    - type: "ternary"
+      fields: [any]
+      actions: [any]
+      update_rate: mid
+      entries: mid
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0
+    - type: "ternary"
+      fields: [any]
+      actions: [any]
+      update_rate: mid
+      entries: mid
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0
+    - type: "exact"
+      fields: [in_port]
+      actions: [drop, push_vlan]
+      update_rate: low
+      entries: low
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 1
+    - type: "exact"
+      fields: [in_port]
+      actions: [drop]
+      update_rate: low
+      entries: low
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 1
+    - type: "exact"
+      fields: [eth_src]
+      actions: [drop]
+      update_rate: static
+      entries: low
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0
+    - type: "exact"
+      fields: [ethertype]
+      actions: [drop]
+      update_rate: static
+      entries: low
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0
+    - type: "exact"
+      fields: [in_port, vlan_vid, eth_src]
+      actions: [notify]
+      update_rate: high
+      entries: high
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0
+    - type: "exact"
+      fields: [vlan_vid, eth_dst]
+      actions: []
+      update_rate: low
+      entries: low
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0
+    - type: "lpm"
+      fields: [vlan_vid, ip_dst]
+      actions: [set_eth_dst, set_eth_src, dec_ttl, set_vid, drop, notify]
+      update_rate: high
+      entries: high
+      hit_access_tables: [9]
+      miss_access_tables: []
+      access_conditionals: 1
+    - type: "ternary"
+      fields: [ip_proto, ip_dst]
+      actions: [drop, notify]
+      update_rate: static
+      entries: low
+      hit_access_tables: [9]
+      miss_access_tables: []
+      access_conditionals: 1
+    - type: "exact"
+      fields: [vlan_vid, eth_dst]
+      actions: [output, pop_vlan]
+      update_rate: high
+      entries: high
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0
+    - type: "exact"
+      fields: [vlan_vid]
+      actions: [multicast, pop_vlan]
+      update_rate: low
+      entries: mid
+      hit_access_tables: []
+      miss_access_tables: [12]
+      access_conditionals: 0

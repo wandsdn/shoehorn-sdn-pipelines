@@ -1,0 +1,14 @@
+title: "OpenFlow Random Host Mutation: Transparent Moving Target Defense using Software Defined Networking"
+link: "http://ecee.colorado.edu/~ekeller/classes/fall2012_sdn/papers/moving_target_hotsdn_2012_jafarian.pdf"
+of_version: ""
+network: enterprise
+hardware: ""
+tables:
+    - type: "exact"
+      fields: [5tuple]
+      actions: [set_ip_src, set_ip_dst]
+      update_rate: high
+      entries: high
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 1

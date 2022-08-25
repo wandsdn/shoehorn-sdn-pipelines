@@ -1,0 +1,13 @@
+title: "ArOMA: An SDN based autonomic DDoS mitigation framework"
+link: ""
+network: ISP
+of_version: "1.3"
+tables:
+    - type: "exact"
+      fields: ["5tuple"]
+      actions: [output, count, notify]
+      update_rate: high
+      entries: high
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 1

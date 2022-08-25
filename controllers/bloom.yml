@@ -1,0 +1,20 @@
+title: "In-packet Bloom filter based data center networking with distributed OpenFlow controllers"
+link: "https://www.researchgate.net/profile/Christian_Esteve_Rothenberg/publication/261154400_In-packet_Bloom_Filter_Based_Data_Center_Networking_With_Distributed_Openfow_Controllers/links/5866680908ae6eb871b09dc6/In-packet-Bloom-Filter-Based-Data-Center-Networking-With-Distributed-Openfow-Controllers.pdf"
+of_version: ""
+tables:
+    - type: "exact"
+      fields: [eth_dst, ip_dst]
+      actions: [set_eth_dst, set_eth_src, output]
+      update_rate: low
+      entries: high
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0
+    - type: "ternary"
+      fields: [eth_src, eth_dst]
+      actions: [output]
+      update_rate: static
+      entries: mid
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0

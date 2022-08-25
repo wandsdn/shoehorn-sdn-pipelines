@@ -1,0 +1,21 @@
+title: "OpenFlow-Based Server Load Balancing Gone Wild"
+link: "https://www.usenix.org/legacy/event/hotice11/tech/full_papers/Wang_Richard.pdf"
+of_version: "1.0"
+tables:
+    - type: "exact"
+      fields: [ip_src, ip_dst]
+      actions: [set_ip_dst, set_eth_dst, count, output]
+      update_rate: high
+      entries: high
+      access_hit_tables: []
+      access_miss_tables: []
+      access_conditionals: 1
+    - type: ternary
+      fields: [ip_src, ip_dst]
+      actions: [set_ip_dst, set_eth_dst, output, count]
+      update_rate: mid
+      entries: mid
+      idle_timeout: no
+      access_hit_tables: []
+      access_miss_tables: []
+      access_conditionals: 1

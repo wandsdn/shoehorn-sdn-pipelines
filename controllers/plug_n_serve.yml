@@ -1,0 +1,12 @@
+title: "Plug-n-Serve: Load-Balancing Web Traffic using OpenFlow"
+link: "https://www.cct.lsu.edu/~xuelin/openflow/sigcomm09-demo-loadbalancer.pdf"
+of_version: ""
+tables:
+    - type: "exact"
+      fields: [5tuple]
+      actions: [output]
+      update_rate: high
+      entries: high
+      access_hit_tables: []
+      access_miss_tables: []
+      access_conditionals: 1

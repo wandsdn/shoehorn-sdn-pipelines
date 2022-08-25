@@ -1,0 +1,13 @@
+title: "Implementation of Content-oriented Networking Architecture (CONA): A Focus on DDoS Countermeasure"
+link: "http://mmlab.snu.ac.kr/publications/docs/2010_EU_netfpga_workshop_jhsuh.pdf"
+of_version: ""
+network: [isp, enterprise]
+tables:
+    - type: "exact"
+      fields: [5tuple]
+      actions: [normal, meter, output]
+      update_rate: high
+      entries: high
+      access_hit_tables: []
+      access_miss_tables: []
+      access_conditionals: 1

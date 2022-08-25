@@ -1,0 +1,22 @@
+title: "Hierarchical SDN for the Hyper-Scale, Hyper-Elastic Data Center and Cloud "
+link: "https://dl-acm-org.ezproxy.waikato.ac.nz/doi/pdf/10.1145/2774993.2775009"
+of_version: "1.3"
+network: "DC"
+hardware: ""
+tables:
+    - type: "exact or any"
+      fields: [in_port, mpls_label]
+      actions: [pop_mpls, output, dec_ttl, select]
+      update_rate: static
+      entries: low
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 1
+    - type: "exact"
+      fields: [mpls_label]
+      actions: [set_eth_dst, set_eth_src, dec_ttl, output]
+      update_rate: low
+      entries: high
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 1

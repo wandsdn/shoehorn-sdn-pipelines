@@ -1,0 +1,22 @@
+title: "A Novel Protection Design for OpenFlow-Based Networks"
+link: "https://www.researchgate.net/profile/Nattapong_Kitsuwan/publication/266265677_A_Novel_Protection_Design_for_OpenFlow-Based_Networks/links/542bd50d0cf27e39fa91a818.pdf"
+of_version: "1.1"
+network: ""
+tables:
+    - type: "exact"
+      fields: [mpls_label]
+      actions: [output, set_mpls_label, push_mpls]
+      update_rate: low
+      entries: high
+      idle_timeout: no
+      access_tables: 0
+      access_conditionals: 1
+    - type: "exact"
+      fields: [mpls_label]
+      actions: [output, set_mpls_label, push_mpls]
+      update_rate: low
+      entries: high
+      idle_timeout: no
+      access_hit_tables: []
+      access_miss_tables: [0]
+      access_conditionals: 1

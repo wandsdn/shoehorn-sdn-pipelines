@@ -1,0 +1,13 @@
+title: "Resilient Integration of Distributed High-Performance Zones into the BelWue Network Using OpenFlow"
+link: "https://publikationen.uni-tuebingen.de/xmlui/bitstream/handle/10900/78152/KuVS-FG-Netsoft17-14.pdf?sequence=1"
+of_version: ""
+network: "nren"
+tables:
+    - type: "lpm"
+      fields: [ip_dst]
+      actions: [set_eth_dst, set_eth_src, output]
+      update_rate: low
+      entries: low
+      access_hit_tables: []
+      access_miss_tables: []
+      access_conditionals: 1

@@ -1,0 +1,13 @@
+title: "OpenQoS: An OpenFlow Controller Design for Multimedia Delivery with End-to-End Quality of Service over Software-Defined Networks"
+link: "https://s3.amazonaws.com/academia.edu.documents/36871147/apsipa.pdf?AWSAccessKeyId=AKIAIWOWYYGZ2Y53UL3A&Expires=1559620894&Signature=8rJrjiDCqTEVnWWISZUuufvJDXQ%3D&response-content-disposition=inline%3B%20filename%3DOpenQoS_An_OpenFlow_Controller_Design_fo.pdf"
+of_version: "1.0"
+network: enterprise
+tables:
+    - type: "exact"
+      fields: [mpls_label, mpls_traffic_class]
+      actions: [output]
+      update_rate: high
+      entries: high
+      access_hit_tables: []
+      access_miss_tables: []
+      access_conditionals: 1

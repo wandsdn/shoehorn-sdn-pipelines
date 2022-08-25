@@ -1,0 +1,21 @@
+title: "Umbrella : a deployable SDN-enabled IXP Switching Fabric"
+link: "https://hal.laas.fr/hal-01927447/document"
+of_version: "1.5"
+network: "IXP"
+tables:
+    - type: "ternary"
+      fields: [in_port, eth_dst]
+      actions: [output, shift_eth_dst]
+      update_rate: low
+      entries: high
+      access_hit_tables: []
+      access_miss_tables: []
+      access_conditionals: 1
+    - type: "exact"
+      fields: [in_port, arp_tpa]
+      actions: [output, set_eth_dst]
+      update_rate: low
+      entries: high
+      access_hit_tables: []
+      access_miss_tables: []
+      access_conditionals: 1

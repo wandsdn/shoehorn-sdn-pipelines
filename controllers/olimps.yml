@@ -1,0 +1,15 @@
+title: "OLiMPS: OpenFlow Link‐layer MultiPath Switching"
+link: "https://www.osti.gov/servlets/purl/1163919"
+of_version: "1.0"
+value: low
+network: "ISP"
+tables:
+    - type: "exact"
+      fields: [vlan_vid]
+      actions: [output, drop]
+      update_rate: low
+      entries: mid
+      idle_timeout: no
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0

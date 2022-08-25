@@ -1,0 +1,13 @@
+title: "NFShunt: A Linux firewall with OpenFlow-enabled hardware bypass"
+link: "https://core.ac.uk/download/pdf/188771766.pdf"
+network: SDMZ
+of_version: "1.3"
+tables:
+    - type: "exact"
+      fields: ["5tuple"]
+      actions: [output, count, notify]
+      update_rate: high
+      entries: high
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 1

@@ -1,0 +1,21 @@
+title: "A Management Method of IP Multicast in Overlay Networks using OpenFlow"
+link: "http://conferences.sigcomm.org/sigcomm/2012/paper/hotsdn/p91.pdf"
+of_version: ""
+network: datacentre
+tables:
+    - type: "exact"
+      fields: [ip_dst]
+      actions: [multicast]
+      update_rate: low
+      entries: high
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0
+    - type: "exact"
+      fields: [in_port, eth_src, vlan_vid]
+      actions: [encap, multicast]
+      update_rate: low
+      entries: high
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0

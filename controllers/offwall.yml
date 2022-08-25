@@ -1,0 +1,29 @@
+title: "Design and Implementation of an OpenFlow-Based TCP SYN Flood Mitigation"
+link: "https://ieeexplore.ieee.org/abstract/document/8350436/"
+network: Enterprise
+of_version: "1.3"
+tables:
+    - type: "exact"
+      fields: [eth_src, eth_dst, ip_src, ip_dst, tcp_dst, ip_proto]
+      actions: [notify]
+      update_rate: high
+      entries: high
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 1
+    - type: "exact"
+      fields: [eth_src, eth_dst, ip_src, ip_dst, tcp_dst, ip_proto]
+      actions: [notify]
+      update_rate: high
+      entries: high
+      hit_access_tables: []
+      miss_access_tables: [0]
+      access_conditionals: 1
+    - type: "exact"
+      fields: [eth_src, eth_dst, ip_src, ip_dst, tcp_dst, ip_proto]
+      actions: [notify]
+      update_rate: high
+      entries: high
+      hit_access_tables: []
+      miss_access_tables: [0,1]
+      access_conditionals: 1

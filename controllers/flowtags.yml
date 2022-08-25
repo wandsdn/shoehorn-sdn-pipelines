@@ -1,0 +1,13 @@
+title: "Enforcing Network-Wide Policies in the Presence of Dynamic Middlebox Actions using FlowTags"
+link: "https://www.usenix.org/system/files/conference/nsdi14/nsdi14-paper-fayazbakhsh.pdf"
+of_version: "1.1"
+network: enterprise
+tables:
+    - type: "exact"
+      fields: [ipv6_flow_label, 5tuple]
+      actions: [output]
+      update_rate: high
+      entries: high
+      access_hit_tables: []
+      access_miss_tables: []
+      access_conditionals: 1

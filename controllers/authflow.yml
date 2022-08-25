@@ -1,0 +1,20 @@
+title: "AuthFlow: authentication and access control mechanism for software defined networking"
+link: "https://link-springer-com.ezproxy.waikato.ac.nz/content/pdf/10.1007/s12243-016-0505-z.pdf"
+of_version: ""
+tables:
+    - type: "ternary"
+      fields: [in_port, ethertype]
+      actions: [notify, output]
+      update_rate: static
+      entries: low
+      hit_access_tables: []
+      miss_access_tables: []
+      access_conditionals: 0
+    - type: "exact"
+      fields: [eth_src, in_port]
+      actions: [drop]
+      update_rate: low
+      entries: low
+      hit_access_tables: []
+      miss_access_tables: [0]
+      access_conditionals: 0
